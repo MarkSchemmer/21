@@ -27,7 +27,7 @@ namespace _21
                 {"2",2}, {"3",3}, {"4",4},
                 {"5",5}, {"6",6}, {"7",7},
                 {"8",8}, {"9",9}, {"10",10}, {"Jack",11},
-                {"Queen",12}, {"King",13}, {"Ace",14}
+                {"Queen",11}, {"King",11}, {"Ace",11}
             };
              List<Card> memory = new List<Card>();
              List<Card> resetDeck = new List<Card>();
@@ -101,24 +101,98 @@ namespace _21
                 Hand.Remove(item);
         }
 
-        public void draw()
+        public void StartingHand()
         {
-            this.Hand.Add(deck.deal());
+            for(var i = 0; i < 2; i++)
+            {
+                this.Hand.Add(deck.deal());
+            }
+           
         }
 
+        public void Hit() => this.Hand.Add(deck.deal());
+        
+
+        public void DiscardAllCards()
+        {
+            foreach(var card in this.Hand)
+            {
+                discard(card);
+            }
+        }
+        public int genScore() => this.Hand.Aggregate(0, (acc, cur) => acc + cur.val);
+        
 
         public void displayHand()
         {
+            var display = "Hey "+this.name + " Your current hand \n";
             foreach(var item in this.Hand)
             {
-                    var str = String.Format("{0} {1}", item.stringVal, item.suit);
-                    Console.WriteLine(str);
+                    display += String.Format("{0} {1}, ", item.stringVal, item.suit);
             }
+            display += "     Current score :  " + genScore() + "\n\n\n\n";
+            System.Console.WriteLine(display);
         }
 
-        public void displayDeck()
+
+    }
+
+    public class GamePlay
+    {
+        public Player player1 { get; set; }
+        public Player AI { get; set; }
+
+        public Deck deck { get; set; }
+
+        public bool AIDone = false;
+
+        public int turns = 0;
+
+        public GamePlay(Player player1, Player AI, Deck deck){
+            this.player1 = player1;
+            this.AI = AI;
+            this.deck = deck;
+        }
+
+
+        public string DisplayHitQuestion(Player player)
         {
-           this.deck.display();
+            return player.name+" Would you like another Hit? Yes(y)/No(n) or End turn(e)";
+        }
+
+        public void Play()
+        {
+            this.player1.Hit();
+            this.AI.Hit();
+            this.player1.Hit();
+            while(true)
+            {
+                if(player1.genScore() > 21){
+                    break;
+                }
+
+                if(this.turns == 0) {player1.displayHand();}
+                System.Console.WriteLine(DisplayHitQuestion(player1));
+                var hit = Console.ReadLine();
+                if(hit == "y"){
+                    this.player1.Hit();
+                    this.player1.displayHand();
+                }
+
+                if(this.AI.genScore() < 18){
+                    this.AI.Hit();
+                }else{
+                    this.AIDone = true;
+                }
+
+                if(hit=="e" && this.AIDone){
+                    player1.displayHand();
+                    AI.displayHand();
+                    break;
+                }
+                this.turns++;
+            }
         }
     }
+
 }

@@ -1,0 +1,10 @@
+D:\My_Files\courses\coding-dojo-homework\21_new\21\bin\Debug\netcoreapp2.0\21.deps.json
+D:\My_Files\courses\coding-dojo-homework\21_new\21\bin\Debug\netcoreapp2.0\21.runtimeconfig.json
+D:\My_Files\courses\coding-dojo-homework\21_new\21\bin\Debug\netcoreapp2.0\21.runtimeconfig.dev.json
+D:\My_Files\courses\coding-dojo-homework\21_new\21\bin\Debug\netcoreapp2.0\21.dll
+D:\My_Files\courses\coding-dojo-homework\21_new\21\bin\Debug\netcoreapp2.0\21.pdb
+D:\My_Files\courses\coding-dojo-homework\21_new\21\obj\Debug\netcoreapp2.0\21.csproj.CoreCompileInputs.cache
+D:\My_Files\courses\coding-dojo-homework\21_new\21\obj\Debug\netcoreapp2.0\21.AssemblyInfoInputs.cache
+D:\My_Files\courses\coding-dojo-homework\21_new\21\obj\Debug\netcoreapp2.0\21.AssemblyInfo.cs
+D:\My_Files\courses\coding-dojo-homework\21_new\21\obj\Debug\netcoreapp2.0\21.dll
+D:\My_Files\courses\coding-dojo-homework\21_new\21\obj\Debug\netcoreapp2.0\21.pdb
