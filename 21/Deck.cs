@@ -167,7 +167,7 @@ namespace _21
             this.player1.Hit();
             while(true)
             {
-                if(player1.genScore() > 21){
+                if(player1.genScore() >= 21 || this.AI.genScore() >= 21){
                     break;
                 }
 
